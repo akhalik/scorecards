@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+<!--    
+    <bean id="LoginAdapter" class="com.productrx.scorecards.service.LoginAdapter" />
+    <bean id="LoginModule" class="com.productrx.scorecards.util.LoginBean">
+        <property name="iloginInterface" ref="LoginAdapter" />
+    </bean>-->
+    
+    <bean id="ClientAdapter" class="com.productrx.scorecards.service.ClientAdapter" />
+    <bean id="ClientModule" class="com.productrx.scorecards.util.ClientBean">
+        <property name="iClientInterface" ref="ClientAdapter" />
+    </bean>
+    
+    <bean id="DetailsAdapter" class="com.productrx.scorecards.service.DetailsAdapter" />
+    <bean id="DetailsModule" class="com.productrx.scorecards.util.DetailsBean">
+        <property name="iDetailsInterface" ref="DetailsAdapter" />
+    </bean>
+    
+</beans>

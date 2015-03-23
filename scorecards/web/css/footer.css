@@ -1,0 +1,133 @@
+.footer_div{    
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+    width:100%;
+    border-top: 1px solid #cccccc;
+}
+.footer_copyright_txt{
+    width:100%;float: left;
+    font-family: arial;
+    font-size: 11px;
+    text-align: center;
+    text-wrap: normal;
+    color:#737373;
+    margin:5px 0px 0px 0px;
+}
+.footer_copyright_txt span{text-decoration: underline;}
+.social_icons{
+    width:154px;
+    height:40px;
+    float: right;   
+    cursor: pointer;
+    margin:12px 0px 0px 0px;
+}
+ul.social_icons_list {   
+    height: 21px;
+    margin:0px 0px 0px 0px;
+}
+ul.social_icons_list li{list-style: none;margin:0px 0px 0px 0px;}
+.social_icons_list .twitter_icon{
+    list-style: none;
+    float: left;
+    width:22px;
+    height: 21px;
+    margin-right:8px;    
+    background-color: #ababab;
+    background-image: url('../images/social-icons_twtr.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    border-radius: 3px;
+    behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */
+}
+ul.social_icons_list .twitter_icon:active{
+    list-style: none;
+    float: left;     
+    /*    border-radius:5px;*/
+    width:22px;
+    height: 21px;
+    margin-right:8px;    
+    background-color: #363636;
+    background-image: url('../images/social-icons_twtr.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    border-radius: 3px;
+    behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */
+}
+ul.social_icons_list .linkedin_icon{
+    list-style: none;
+    float: left;     
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:10px;
+    background-color: #ababab;
+    background-image: url('../images/social-icons_ind.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+ul.social_icons_list .linkedin_icon:active{
+    list-style: none;
+    float: left;     
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:10px;
+    background-color: #363636;
+    background-image: url('../images/social-icons_ind.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+ul.social_icons_list .facebook_icon{
+    list-style: none;
+    float: left;    
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:8px;
+    background-color: #ababab;
+    background-image: url('../images/social-icons_fb.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+ul.social_icons_list .facebook_icon:active{
+    list-style: none;
+    float: left;    
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:8px;
+    background-color: #363636;
+    background-image: url('../images/social-icons_fb.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+ul.social_icons_list .google_icon{
+    list-style: none;
+    float: left;     
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:0px;
+    background-color: #ababab;
+    background-image: url('../images/social-icons_googleplus.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+ul.social_icons_list .google_icon:active{
+    list-style: none;
+    float: left;     
+    border-radius: 3px;
+    width:22px;
+    height: 21px;
+    margin-right:0px;
+    background-color: #363636;
+    background-image: url('../images/social-icons_googleplus.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCORECARD>
+    <SCORECARD_HEADER>
+			<Queries>Query Builder,Sales Performance,Market Share</Queries>
+                        <QueryIds>New,Sales,MS</QueryIds>
+    </SCORECARD_HEADER>
+<!--    <SCORECARD_MAP>
+		<SCORECARD_MAP_DROPDOWN>
+				<SCORECARD_COLOROPTIONS>Stores Visited,Brand Presence,Brand Changes</SCORECARD_COLOROPTIONS>
+		</SCORECARD_MAP_DROPDOWN>
+		<SCORECARD_MAP_CHECKBOX>
+				<SCORECARD_CB>Outlets,Cities,States</SCORECARD_CB>
+	    </SCORECARD_MAP_CHECKBOX>
+	</SCORECARD_MAP>-->
+</SCORECARD>

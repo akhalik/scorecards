@@ -1,0 +1,495 @@
+@font-face {
+    font-family: 'Conv_1544';
+    src: url('fonts/1544.eot');
+    src: local('☺'), url('fonts/1544.woff') format('woff'), url('fonts/1544.ttf') format('truetype'), url('fonts/1544.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.containerbody{
+    width:680px;height: 680px;
+    margin: 0 auto;
+}
+
+.content_div1{
+    width:680px;height: 328px;
+    border-bottom: 1px solid #cccccc;
+}
+.content_textdiv{
+    width:340px;
+    height: 328px;  
+    float: left; 
+    margin: 0px 10px 0px 0px;
+}
+.titletext{
+    font-family: Georgia;
+    font-size:34px;
+    text-align: left;
+    color: #000000;
+    margin: 22px 0px 0px 0px;
+}
+.subtitletext{
+    font-family: Georgia;
+    font-size:20px;
+    text-align: left;
+    color: #111111;
+    margin:11px 0px 0px 0px;
+}
+.demo_div{
+    width:134px;height:34px;
+    float:left;
+    font-family: arial;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 34px;
+    cursor: pointer;
+    border-radius:5px;
+    background: #545454;
+    margin: 34px 0px 0px 0px;
+}
+.content_areadiv{
+    width:323px;height: 328px;    
+    float: left;
+}
+.area_bg{
+    width:344px;height:292px;
+    float:left;
+    margin: 22px 0px 0px 0px;
+    background: #b2b2b2;
+}
+.content_formdiv{
+    width:60%;height: 60px;  
+    float: right;
+}
+.form_title{
+    font-family: arial;
+    font-weight: bold;
+    font-size:16px;
+    color:#484848;
+    text-align: left;
+    margin:20px 0px 16px 28px;
+}
+.form_label_txt{
+    font-family: arial;
+    font-weight:normal;
+    font-size:16px;
+    color: #484848;
+    text-align: left;
+    display: block;
+}
+form input{
+    width: 90%;
+    height:22px;
+    border: 1px solid #dddddd;
+    font-size: 16px;
+    color: #484848;
+    padding-left: 5px;
+}
+.forgotpwd_txt{
+    font-family: arial;
+    font-size:11px;
+    color:#919191;
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+    display: block;
+    margin:-4px 0px 3px 28px;
+}
+.submit_btn{
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+    width:50%;
+    height:22px;
+    font-family: arial;
+    font-weight: bold;
+    font-size:14px;
+    color: window;
+    text-align:center;    
+    background: transparent;
+    margin-top: 10px;
+    background-color:#0077c7;
+}
+.submit_btn:hover {
+	background-color:#808080;
+	color:#ffffff;
+}
+
+.content_div2{
+    width:960px;height:216px;
+    /*    border-bottom: 1px solid #cccccc;*/
+}
+.content_txtdiv1{
+    width:308px;
+    height: 216px;
+    float: left;
+    margin:0px 16px 0px 0px;
+}
+.title_headertxt{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 22px 0px 0px 0px;    
+}
+.bodytxt{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:10px 0px 0px 0px;   
+}
+.knowmore_txt{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:17px 0px 0px 0px;    
+}
+.content_txtdiv2{
+    width:338px;
+    height:170px;
+    float: left;
+    border-right:1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    margin:22px 0px 0px 0px;  
+}
+.content_txtdiv2 .title_headertxt{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 0px 0px 0px 25px;    
+}
+ul.content_listview{
+    margin: 10px 0px 0px 4px;
+}
+ul.content_listview li{
+    list-style: square;
+    /*    list-style:square url("sqpurple.gif");*/
+    font-size:20px;    
+    line-height:16px;
+    margin:5px 0px 18px 0px;
+}
+ul.content_listview li span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    line-height:10px;
+}
+.content_txtdiv3{
+    width:292px;
+    height: 216px;
+    float: left;
+    margin:0px 0px 0px 0px;
+}
+
+.content_txtdiv3 .title_headertxt{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 22px 0px 0px 25px;    
+}
+
+ul.content_listview1{
+    margin: 10px 0px 0px 4px;
+}
+
+ul.content_listview1 li{
+    list-style: square;
+    /*    list-style:square url("sqpurple.gif");*/
+    font-size:20px;    
+    line-height:16px;
+    margin:5px 0px 10px 0px;
+}
+ul.content_listview1 li span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    line-height:10px;
+}
+.email_txt{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;    
+}
+.email_txt span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#000000;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;    
+}
+.emailtxt{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#000000;
+    margin:0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px; 
+}
+.emailtxt span{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    text-align: left;
+    color:#007297;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;    
+}
+.phone_number{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 20px 0px 0px 0px;   
+}
+.phone_number span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;   
+}
+/* ------End of the home page css ------*/
+/* ------About page css starts here ------*/
+.about_content_body{
+    width:960px;
+    height: 544px;
+}
+.about_contentdiv1{
+    width:400px;
+    height: 544px;
+    float: left;
+}
+.about_contentdiv2{
+    width:316px;
+    height: 544px;
+    float: left;
+}
+.demomap{
+    width:336px;
+    height: 343px;
+    background-image: url("../images/demo_map.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 25px 0px 0px 0px;
+}
+.about_contentdiv3{
+    width:243px;
+    height: 444px;
+    float: left;
+    margin: 25px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
+}
+.contentdiv3_info{
+    width:223px;
+    height: 444px;
+    float: left;
+    margin: 0px 0px 0px 0px;
+    padding:0px 0px 0px 20px;
+    border-left:1px solid #cccccc;
+}
+.title_headertxt_aboutpage{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    color:#868686;
+    margin:-4px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;    
+}
+.email_txt1{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 6px 0px 0px 0px;    
+}
+.email_txt1 span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#000000;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;    
+}
+.emailtxt1{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#000000;
+    margin:0px 0px 0px 0px;
+    padding:2px 0px 1px 0px;   
+}
+.emailtxt1 span{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    text-align: left;
+    color:#007297;
+    margin:0px 0px 0px 0px;
+    padding:10px 0px 0px 0px;    
+}
+.phone_number_aboutpage{
+    font-family: arial;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;    
+    margin: 0px 0px 0px 2px;
+    padding: 14px 0px 0px 0px;
+}
+.phone_number_aboutpage span{
+    font-family: arial;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding: 10px 0px 0px 0px;   
+}
+.bodytxt1{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:16px 0px 24px 0px;   
+}
+.bodytxt2{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:10px 0px 0px 0px;   
+}
+.bodytxt3{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:17px 0px 0px 0px;   
+}
+.bodytxt4{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: left;
+    color:#868686;
+    margin:0px 0px 0px 0px;
+    padding:17px 0px 0px 0px;   
+}
+/* ------End of the About page css ------*/
+/* ------Faq page css starts here ------*/
+.faq_content_body{
+    width:716px;
+    height: 544px;
+    float: left;
+}
+.accordian_titletxt{
+    font-family: arial;
+    font-weight:bold;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: left;
+    color:#00669b !important;
+    margin:0px 0px 0px -4px;
+    padding:10px 0px 0px 0px; 
+}
+.accordian_txt{
+    font-family: arial;
+    font-weight:normal;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: left;
+    color:#666666;
+    margin:0px 0px 0px 0px;
+    padding:10px 0px 0px 0px; 
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active{border:1px solid #cccccc !important;}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: 1px solid #cccccc !important;
+    background-color: transparent !important;
+    font-weight: bold;
+    color: #c77405;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border: 1px solid #fbd850;
+    border-bottom:none !important;
+    background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #000000 !important;
+}
+.ui-widget-content {
+    border: 1px solid #dddddd;
+ background: transparent !important;
+    color: #333333;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 1px solid #ffffff !important;
+    background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #1c94c4;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+    border-top: 1px solid #e1e1e1 !important;
+    border-right: 1px solid #e1e1e1 !important;
+    border-left:  1px solid #e1e1e1 !important;
+    border-bottom:  1px solid #ffffff !important;
+    background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #eb8f00;
+}
