@@ -12,10 +12,10 @@
         <servlet-name>ClientController</servlet-name>
         <servlet-class>com.productrx.scorecards.controller.ClientController</servlet-class>
     </servlet>
--->    <servlet>
+    <servlet>
         <servlet-name>DetailsController</servlet-name>
         <servlet-class>com.productrx.scorecards.controller.DetailsController</servlet-class>
-    </servlet><!--
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClientController</servlet-name>
         <url-pattern>/ClientController</url-pattern>
@@ -27,12 +27,13 @@
 <!--      <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
-    </servlet-mapping>-->
+   </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DetailsController</servlet-name>
         <url-pattern>/DetailsController</url-pattern>
     </servlet-mapping>
-    <!--servlet mapping for spring servlet. TODO - ignore static content -->
+    -->
+   
       <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.action</url-pattern>

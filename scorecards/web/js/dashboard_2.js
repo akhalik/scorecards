@@ -578,16 +578,23 @@ function handleChartData(QueryId,dialogId,res) {
 
 function getAreasList(filter, QueryId, dialogId){
     var loc = $('#place').val();
-    var arguments = 'detailsRequest={"QueryId":"'+QueryId+'","requestType":"widgetnumbers","filter":"'+filter+'","location":"'+loc+'","dateRange":""}';
- 
+   // var arguments = 'detailsRequest={"QueryId":"'+QueryId+'","requestType":"widgetnumbers","filter":"'+filter+'","location":"'+loc+'","dateRange":""}';
+   var requestData = {};
+   requestData.queryId = QueryId;
+   requestData.requestType = "widgetnumbers";
+   requestData.filter = filter;
+   requestData.location = loc;
+   requestData.dateRange = "";
     $.ajax({  
         type: "POST",  
         cache:false,
-        data:arguments,
+        data:JSON.stringify(requestData),
         async:true,
-        url: "DetailsController",  
+       //  url: "DetailsController",  
+         url: "DetailsController/WidgetDataTable.action",
         dataType: "json",
-        success:function(res) { handleAreasList(filter, QueryId, dialogId, res.numbers); }
+        contentType: 'application/json',
+        success:function(res) { handleAreasList(filter, QueryId, dialogId, res.dataTable); }
     });
 }
     
@@ -639,16 +646,22 @@ function submitNote(note,id) {
     var queryId = SavedQueryIds[id-1];
     var loc = $('#place').val();
     note = encodeURIComponent(note);
-    var arguments = '{"QueryId":"'+queryId+'","requestType":"submitnotes","note":"'+note+'","location":"'+loc+'","dateRange":""}';
- 
+    //var arguments = '{"QueryId":"'+queryId+'","requestType":"submitnotes","note":"'+note+'","location":"'+loc+'","dateRange":""}';
+   var requestData = {};
+   requestData.queryId = queryId;
+   requestData.requestType = "submitnotes";
+   requestData.location = loc;
+   requestData.dateRange = "";
+   requestData.note = note;
     $.ajax({  
         type: "POST",  
         cache:false,
-        data:'detailsRequest='+arguments,
-        async:true,
-        url: "DetailsController",  
+        async: true,
+        data:JSON.stringify(requestData),
+        url: "DetailsController/NotesData.action",
         dataType: "json",
-        success:function(res) { handleNotes('notestable', id, res.notestable); }
+        contentType: 'application/json',
+        success:function(res) { handleNotes('notestable', id, res.dataTable); }
     });    
 }
 

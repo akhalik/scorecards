@@ -5,14 +5,7 @@
 package com.productrx.scorecards.service;
 
 import com.productrx.scorecards.common.interfaces.IClientInterface;
-import com.productrx.scorecards.util.HibernateUtil;
 import java.io.IOException;
-import java.math.BigInteger;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
