@@ -307,6 +307,7 @@ public class DetailsAdapter implements IDetailsInterface {
             dataTable.add(0, hdrArr);
             dataTable.addAll(1, resultList);
             chartVo.setDataTable(dataTable);
+            transaction.commit();
         } catch (Exception e) {
             // TODO : proper excption handling
             transaction.rollback();

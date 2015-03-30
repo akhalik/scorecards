@@ -15,6 +15,7 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 
 	<context:component-scan base-package="com.productrx.scorecards.controller" />
           <mvc:annotation-driven />
+        <!-- APPLICATION BEANS NEEDS TO MOVE IN SAPERATE XML-->
          <bean id="LoginAdapter" class="com.productrx.scorecards.service.LoginAdapter" />
          <bean id="LoginModule" class="com.productrx.scorecards.util.LoginBean">
              <property name="iloginInterface" ref="LoginAdapter" />
@@ -32,6 +33,7 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
          <bean id="detailsModule" class="com.productrx.scorecards.util.DetailsBean">
              <property name="iDetailsInterface" ref="DetailsAdapter" />
         </bean>
+       
 	<bean id="viewResolver"  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   		<property name="prefix">
    			<value>/</value>
@@ -40,5 +42,10 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
    			<value>.jsp</value>
   		</property>
  	</bean>
+        
+        <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+         <property name="basename" value="classpath:messages" />
+         <property name="defaultEncoding" value="UTF-8" />
+        </bean>
       
 </beans>
