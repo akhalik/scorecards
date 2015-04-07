@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Retail Scorecards</title>
+        <title><spring:message code="app.title"></spring:message></title>
 
         <!-- Bootstrap Core CSS -->
         <link href="<c:url value="${webappRoot}/css/bootstrap.min.css" />" rel="stylesheet">
@@ -203,11 +203,11 @@
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #ffffff; text-align: left">
-                                                        Retail Scorecards
+                                                         <spring:message code="app.title"></spring:message>
                                                         <br>
                                                     </p>
                                                     <p style="font-size: 14px; color:#ffffff; text-align: left">
-                                                        Evaluate your Retail Stores on criteria such as Visibility, Location, Upkeep, Alignment with business needs, etc.
+                                                        <spring:message code="app.description"></spring:message>
                                                     </p>
                                                 </div>
                                             </div>
@@ -226,12 +226,11 @@
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
-                                                        Photo Based Assessment
+                                                    <spring:message code="widget.photo.title"></spring:message>
                                                         <br>
                                                     </p>
                                                     <p style="font-size: 14px; color:#002b36; text-align: left">
-                                                        Photos taken in and around the store form the basis of evaluation.
-                                                        Surveys, Mystery Audits, Etc. are also used as required.
+                                                        <spring:message code="widget.photo.description"></spring:message>
                                                     </p>
                                                 </div>
                                             </div>
@@ -250,10 +249,11 @@
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
-                                                        Interactive Dashboard
+                                                    <spring:message code="dashboard.title"></spring:message>
                                                         <br>
                                                     </p>
-                                                    <p style="font-size: 14px; color:#002b36; text-align: left">A quick summary of key indicators. Deep dive to see trends and photos all the way down to individual store level.
+                                                    <p style="font-size: 14px; color:#002b36; text-align: left">
+                                                        <spring:message code="dashboard.description"></spring:message>
                                                     </p>
                                                 </div>
                                             </div>                               
@@ -269,12 +269,11 @@
                                                 <img class="img-responsive" src="./images/contact.jpg">
                                                 <div style="position:absolute;top:20%;left:55%;">    
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
-                                                        Call or write for a demo
+                                                         <spring:message code="label.company.contactus"></spring:message>
                                                         <br>
                                                     </p>
                                                     <p style="vertical-align: middle; font-size: 14px; color:#002b36; text-align: left">
-                                                        ProductRx Consulting Pvt Ltd<br>
-                                                        +919958248203<br>info@productrx.com
+                                                    <spring:message code="company.info"></spring:message>
                                                     </p>
                                                 </div>
                                             </div>                               
@@ -299,7 +298,7 @@
             <hr>
             <footer>
 
-                <span style="font-size:12px;">Copyright © 2014 ProductRx Consulting Pvt Ltd | <a href="#">Terms & Privacy</a></span>
+                <span style="font-size:12px;"><spring:message code="company.copyright"></spring:message></span>
 
             </footer>
         </div>

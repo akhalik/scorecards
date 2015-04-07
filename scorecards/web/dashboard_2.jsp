@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%! String username = null, clientid = null;%>
 <%   /*  Checking the session null or not   */
     String user = (String) session.getAttribute("username");
@@ -28,31 +31,31 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Scorecards - <%= clientid%></title>
+    <title> <spring:message code="app.title"></spring:message>- <%= clientid%></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="<c:url value="${webappRoot}/css/plugins/metisMenu/metisMenu.min.css"/>" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="<c:url value="${webappRoot}/css/sb-admin-2.css"/>" rel="stylesheet">
     
-      <link href="css/custom.css" rel="stylesheet">
+      <link href="<c:url value="${webappRoot}/css/custom.css"/>" rel="stylesheet">
 
     <!-- Custom Fonts -->
     
    
     <!-- Original includes -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value="${webappRoot}/font-awesome-4.1.0/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         
     <!-- Following includes for pop-up window for location search -->
-    <link rel="stylesheet" href="css/dashboardcss/jquery-ui-1.10.3.custom.css"/>  
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="<c:url value="${webappRoot}/css/dashboardcss/jquery-ui-1.10.3.custom.css"/>"/>  
+    <link rel="stylesheet" href="<c:url value="${webappRoot}/css/style.css"/>">
+    <script type="text/javascript" src="<c:url value="${webappRoot}/js/jquery-1.7.2.min.js" />"></script>
+    <script type="text/javascript" src="<c:url value="${webappRoot}/js/jquery-ui.js" />"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +67,7 @@
     
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
                                    
-    <script type="text/javascript" src="js/dashboard_2.js"></script>
+    <script type="text/javascript" src="<c:url value="${webappRoot}/js/dashboard_2.js" />"></script>
 </head>
 
 <body>
@@ -80,7 +83,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="index.html" class="logo"><img src="images/logo.png" title="ProductRx" alt="ProductRx"></a><div class="retailscorecard">Retail Scorecards</div>
+                <a class="navbar-brand" href="index.html" class="logo"><img src="images/logo.png" title="ProductRx" alt="ProductRx"></a>
+                <div class="retailscorecard"><spring:message code="app.title"></spring:message></div>
             </div>
             <!-- /.navbar-header -->
 
@@ -92,42 +96,42 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" id="place" class="form-control" placeholder="All Locations">
+                                <input type="text" id="place" class="form-control" placeholder="<spring:message code="search.placeholder.location"></spring:message>">
                                 <span class="input-group-btn">
                                 <button id="loc" class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
                                 </button>
                                 </span>
                             </div>
-                            <div> <a onclick="LocationSearch()" data-rel="popup" data-transition="pop"> Search Locations </a></div>
+                                <div> <a onclick="LocationSearch()" data-rel="popup" data-transition="pop"> <spring:message code="menu.search.title"></spring:message></a></div>
                                                    	
                             <!-- input-group -->
                         </li>
                         <li>
-                            <a onclick="activate_dashboard()"><span> <i class="fa fa-dashboard fa-fw"></i> Dashboard</span></a>
+                            <a onclick="activate_dashboard()"><span> <i class="fa fa-dashboard fa-fw"></i>  <spring:message code="menu.dashboard.title"></spring:message></span></a>
                             
                         </li>
                         <li class="scroll-y">
-                            <a href="dashboard_2.jsp"><i class="fa fa-sitemap fa-fw"></i> Store Directory<span class="fa arrow"></span></a>
+                            <a href="dashboard_2.jsp"><i class="fa fa-sitemap fa-fw"></i>  <spring:message code="menu.directory.title"></spring:message><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level" id="storelist">
-                                <li><a href="#" data-toggle="tab"><b>Updating Stores List...</b></a></li>
+                                <li><a href="#" data-toggle="tab"><b><spring:message code="progress.storelist"></spring:message></b></a></li>
 
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> About<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> <spring:message code="menu.about.title"></spring:message><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#overview" data-toggle="tab">Overview</a>
+                                    <a href="#overview" data-toggle="tab"><spring:message code="menu.overview.title"></spring:message></a>
                                 </li>
                                 <li>
-                                    <a href="#methodology" data-toggle="tab">Methodology</a>
+                                    <a href="#methodology" data-toggle="tab"><spring:message code="menu.method.title"></spring:message></a>
                                 </li>
                             </ul>
                         </li>
                          <li>
-                            <a href="LoginController/Logout.action"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="LoginController/Logout.action"><i class="fa fa-sign-out fa-fw"></i> <spring:message code="menu.logout.title"></spring:message></a>
                         </li>
                     </ul>
                 </div>
@@ -142,7 +146,7 @@
                     
                       <p class="toptext">
                         <span class="more">
-                            <b>Please wait while the dashboard page loads.  It may take about 30 seconds...</b>
+                            <b> <spring:message code="progress.dashboard"></spring:message></b>
                         </span>
                       </p>                                            
                       </div>
@@ -167,19 +171,19 @@
         <hr>
         <footer>
             
-                <span style="font-size:12px;">Copyright © 2014 ProductRx Consulting Pvt Ltd | <a href="#">Terms & Privacy</a></span>
+                <span style="font-size:12px;"><spring:message code="company.copyright"></spring:message></span>
             
         </footer>
      </div>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<c:url value="${webappRoot}/js/bootstrap.min.js" />"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="<c:url value="${webappRoot}/js/plugins/metisMenu/metisMenu.min.js" />"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
+    <script src="<c:url value="${webappRoot}/js/sb-admin-2.js" />"></script>
 
         <script>
             google.load("visualization", "1", {packages:["corechart","table"]});
@@ -197,10 +201,10 @@
         </script>
         <div id="dialog" title="Search Location">
         <div>
-            <p style="float: left; font-size: large"> Please click to choose a market </p>
+            <p style="float: left; font-size: large"> <spring:message code="label.choose.market"></spring:message> </p>
             <hr>
             <div class="storeScorecard">
-            <table class="numbersTable" id="areas" style="float:left;width:100%" ><tr><td></tr></td><tr><td></tr></td><tr><td><h4>Loading Scorecard. Please wait...</h4></td></tr><tr><td></tr></td><tr><td></tr></td></table>
+            <table class="numbersTable" id="areas" style="float:left;width:100%" ><tr><td></tr></td><tr><td></tr></td><tr><td><h4><spring:message code="progress.scorecard"></spring:message> </h4></td></tr><tr><td></tr></td><tr><td></tr></td></table>
             </div>
         </div>
         </div>    
