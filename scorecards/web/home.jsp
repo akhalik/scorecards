@@ -78,7 +78,7 @@
                             "password": $('#Password').val(),
                         };
                         $.ajax({
-                            url: "LoginController/Login.action",
+                            url: "<c:url value="${webappRoot}/LoginController/Login.action"/>",
                             type: "POST", //listrequest={"type":"'+type+'","id":"'+listid+'"}
                             data: inputdata,
                             success: function (result) {
@@ -93,7 +93,7 @@
                                     $('#loadingImg').hide();
                                 } else {
                                     $('#loadingImg').show();
-                                    window.location.assign("dashboard_2.jsp");
+                                    window.location.assign("<c:url value="${webappRoot}/dashboard_2.jsp"/>");
                                 }
                             }, error: function (jqXHR, textStatus, errorThrown) {
                                 alert("Server experiencing some problem please reload once.. ")
@@ -184,7 +184,7 @@
                                         <spring:message code="label.password"></spring:message></label>
                                         <input id="Password" type="password" name="password" value="" />
                                         <input type="button" id="mysubmit" value="<spring:message code="label.submit"></spring:message>" class="submit_btn" />
-                                        <img id="loadingImg" src="images/loading_login.gif" class="loginLoading">
+                                        <img id="loadingImg" src="<c:url value="${webappRoot}/images/loading_login.gif"/>" class="loginLoading">
                                         
                                         <div class="validateTips"></div>
                                        
