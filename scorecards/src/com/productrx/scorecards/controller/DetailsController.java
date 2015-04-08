@@ -1,12 +1,21 @@
 package com.productrx.scorecards.controller;
+
+import com.productrx.scorecards.common.RESTException;
 import com.productrx.scorecards.common.interfaces.IDetailsInterface;
 import com.productrx.scorecards.vo.ChartVo;
 import com.productrx.scorecards.vo.DetailRequestVo;
 import com.productrx.scorecards.vo.DetailsResponseVo;
 import com.productrx.scorecards.vo.LoginVo;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +28,9 @@ public class DetailsController {
     LoginVo loginVo;
     @Autowired
     IDetailsInterface iDetailsInterface;
-
+    @Autowired
+    ReloadableResourceBundleMessageSource messageSource;
+    
     @RequestMapping(value = "/DetailsController/WidgetPhotos", method = RequestMethod.POST, headers = "accept=application/json")
     public @ResponseBody
     DetailsResponseVo getWidgePhotos(@RequestBody DetailRequestVo requestVo) {
@@ -46,8 +57,8 @@ public class DetailsController {
             }
 
         } catch (Exception ex) {
-            //TODO - exception handling
-            ex.printStackTrace();
+            //TODO - Logging // CONSTANT
+            throw new RESTException("GET WidgetPhotos", 1006, ex.getMessage(), ex);
         }
 
         return responseVo;
@@ -76,8 +87,8 @@ public class DetailsController {
                 responseVo.setChartVo(chartVo);
             }
         } catch (Exception ex) {
-            //TODO - exception handling
-            ex.printStackTrace();
+            //TODO - Logging // CONSTANT
+            throw new RESTException("GET WidgetChart", 1002, ex.getMessage(), ex);
         }
         return responseVo;
     }
@@ -105,9 +116,8 @@ public class DetailsController {
             }
 
         } catch (Exception ex) {
-            ex.printStackTrace();
-
-            throw ex;
+            //TODO - Logging // CONSTANT
+            throw new RESTException("GET Widget Data Table", 1003, ex.getMessage(), ex);
         }
 
         return responseVo;
@@ -138,9 +148,23 @@ public class DetailsController {
             }
 
         } catch (Exception ex) {
-            ex.printStackTrace();
-            throw ex;
+            //TODO - Logging // CONSTANT
+            throw new RESTException("GET NoteData()", 1004, ex.getMessage(), ex);
         }
         return responseVo;
     }
- }
+    
+    @ExceptionHandler(RESTException.class)
+    public @ResponseBody
+    Map<String, String> handleException(RESTException ex, Locale locale) {
+
+        Map<String, String> mp = new HashMap<String, String>();
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        ex.printStackTrace(pw);
+        mp.put("errorMessage", messageSource.getMessage("internal.error", null, locale) + "-" + ex.getErrorContext() + "-" + ex.getErrorCode() + ":" + ex.getErrorText());
+        mp.put("errorDetail", sw.toString());
+        return mp;
+
+    }
+}

@@ -42,8 +42,8 @@
                         tips = $(".validateTips");
                 function updateTips(t) {
                     tips
-                            .text(t)
-                            .addClass("ui-state-highlight");
+                            .html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>'+t+'<div>');
+                            //.addClass("ui-state-highlight");
                     setTimeout(function () {
                         tips.removeClass("ui-state-highlight", 1500);
                     }, 500);
@@ -82,8 +82,14 @@
                             type: "POST", //listrequest={"type":"'+type+'","id":"'+listid+'"}
                             data: inputdata,
                             success: function (result) {
-                                if (result == "error") {
-                                    updateTips("Invalid Credentials");
+                                if(result.errorMessage){
+        
+                                    alert(result.errorMessage);
+                                    return;
+                                    }
+                                
+                                if (result != "success") {
+                                    updateTips(result);
                                     $('#loadingImg').hide();
                                 } else {
                                     $('#loadingImg').show();
@@ -139,7 +145,7 @@
             })
         </script>
 
-        <script type="text/javascript" src="./js/dashboard_2.js"></script>
+        <script type="text/javascript" src="<c:url value="${webappRoot}/js/dashboard_2.js"/>"></script>
     </head>
 
     <body>
@@ -153,10 +159,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html" class="logo"><img src="./images/logo.png" title="Daikin" alt="Daikin"></a><div class="retailscorecard">Retail Scorecards</div>
+                    <a class="navbar-brand" href="index.html" class="logo"><img src="<c:url value="${webappRoot}/images/logo.png"/>" title="Daikin" alt="Daikin"></a><div class="retailscorecard"><spring:message code="app.title"></spring:message></div>
+                    
                 </div>
                 <!-- /.navbar-header -->
-
+                
 
                 <!-- /.navbar-top-links -->
 
@@ -178,10 +185,20 @@
                                         <input id="Password" type="password" name="password" value="" />
                                         <input type="button" id="mysubmit" value="<spring:message code="label.submit"></spring:message>" class="submit_btn" />
                                         <img id="loadingImg" src="images/loading_login.gif" class="loginLoading">
+                                        
                                         <div class="validateTips"></div>
+                                       
                                     </form>
                                 </div>
                                 <!-- /input-group -->
+                            </li>
+                            <li>
+                                  <c:if test="${not empty logout}">
+                                        <div class="alert alert-success alert-dismissable">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                            <c:out value="${logout}"/>
+                                        </div>
+                                    </c:if>
                             </li>
                         </ul>
                     </div>
@@ -197,9 +214,10 @@
                                 <!--intro1-->
                                 <div class="col-md-12 col-lg-8 col-sm-12 col-xs-12 xyz center">
                                     <div class="tab-content">
+                                  
                                         <div class="tab-pane active" id="intro1">
                                             <div style="position:relative;">
-                                                <img class="img-responsive" src="./images/diamond.jpg">
+                                                <img class="img-responsive" src="<c:url value="${webappRoot}/images/diamond.jpg"/>">
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #ffffff; text-align: left">
@@ -222,7 +240,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="intro1">
                                             <div style="position:relative;">
-                                                <img class="img-responsive" src="./images/method.jpg">
+                                                <img class="img-responsive" src="<c:url value="${webappRoot}/images/method.jpg"/>">
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
@@ -245,7 +263,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="intro1">
                                             <div style="position:relative;">
-                                                <img class="img-responsive" src="./images/dash.jpg">
+                                                <img class="img-responsive" src="<c:url value="${webappRoot}/images/dash.jpg"/>">
                                                 <div style="position:absolute;top:20%;left:55%;">    
 
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
@@ -266,7 +284,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="intro2">
                                             <div style="position:relative;">
-                                                <img class="img-responsive" src="./images/contact.jpg">
+                                                <img class="img-responsive" src="<c:url value="${webappRoot}/images/contact.jpg"/>">
                                                 <div style="position:absolute;top:20%;left:55%;">    
                                                     <p style="font-size: 25px; color: #002b36; text-align: left">
                                                          <spring:message code="label.company.contactus"></spring:message>

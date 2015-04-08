@@ -151,6 +151,10 @@ function populateStoreDirectory() {
         dataType: "json",
         contentType: 'application/json',
     }).done(function(res) {
+        if(res.errorMessage){
+             alert(res.errorMessage);
+             return;
+        }
         tabledata = res.dataTable;
     }); 
     
@@ -260,6 +264,11 @@ function CreateDashboardWidgets()
         success: function(){
         }
     }).done(function(res) {
+        if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
         configData = res.configData;
     });
     configData = JSON.parse(configData); // TODO: Excpetion handling
@@ -378,12 +387,17 @@ function getWidgetTable(filter, QueryId, dialogId){
          url: "DetailsController/WidgetDataTable.action",
         dataType: "json",
         contentType: 'application/json',
-        success:function(res) { handleTableData(filter, 'ntable', dialogId, res.dataTable); }
+        success:function(res) { handleTableData(filter, 'ntable', dialogId, res); }
     });
 }
     
-function handleTableData(filter, tablename, dialogId, tabledata) {
-    
+function handleTableData(filter, tablename, dialogId, res) {
+    if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
+    var tabledata = res.dataTable;
     var tablehtml = "";
     var hdritems = tabledata[0];
     var row = "<tr><th style='text-align: left'>"+ hdritems[1] + "</th>";
@@ -443,16 +457,23 @@ function getWidgetPhotos(filter,QueryId,dialogId){
         url: "DetailsController/WidgetPhotos.action",  
         dataType: "json",
         contentType: 'application/json',
-        success:function(res){ handlePhotos(QueryId,dialogId,res.photos); }
+        success:function(res){ handlePhotos(QueryId,dialogId,res); }
     });
 }
 
-function handlePhotos(QueryId,dialogId,photos) {
+function handlePhotos(QueryId,dialogId,res) {
         
     if(images.length == 0) {
         showLargeImg(dialogId,"noimage.jpg");
         return;
     }
+    if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
+    
+    var photos = res.photos;
     images =  photos[0].images.split(', ');
     
     var imghtml="";
@@ -499,6 +520,11 @@ function getWidgetChart(QueryId,dialogId){
 }
 
 function handleChartData(QueryId,dialogId,res) {
+    if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
     if(res.length == 1){  //Checking if data is NULL
         //$('.Detail'+dialogId+' #chart'+dialogId).html('<div style="text-align: center; font-weight: bold; margin: 180px auto 0px;" ><span style="top:100px;">NO DATA</span></div>');
     }else{
@@ -594,12 +620,18 @@ function getAreasList(filter, QueryId, dialogId){
          url: "DetailsController/WidgetDataTable.action",
         dataType: "json",
         contentType: 'application/json',
-        success:function(res) { handleAreasList(filter, QueryId, dialogId, res.dataTable); }
+        success:function(res) { handleAreasList(filter, QueryId, dialogId, res); }
     });
 }
     
-function handleAreasList(filter, QueryId, dialogId, tabledata) {
+function handleAreasList(filter, QueryId, dialogId, res) {
     
+    if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
+    var tableData = res.dataTable;
     var tablehtml = "";
     var row = "";
     
@@ -661,12 +693,17 @@ function submitNote(note,id) {
         url: "DetailsController/NotesData.action",
         dataType: "json",
         contentType: 'application/json',
-        success:function(res) { handleNotes('notestable', id, res.dataTable); }
+        success:function(res) { handleNotes('notestable', id, res); }
     });    
 }
 
-function handleNotes(tablename, dialogId, tabledata) {
-    
+function handleNotes(tablename, dialogId, res) {
+     if(res.errorMessage){
+        
+        alert(res.errorMessage);
+        return;
+    }
+    var tabledata = res.dataTable;
     //var tablehtml = $('#'+tablename+dialogId).html();    
     var tablehtml = "";
     var hdritems = tabledata[0];
