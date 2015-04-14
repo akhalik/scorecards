@@ -16,14 +16,14 @@ public interface IClientInterface {
      *
      * @return
      */
-    public JSONArray getClientUIData();
+    public JSONArray getClientUIData() throws Exception;
     
     /**
      *
      * @param clientCode
      * @return
      */
-    public JSONArray getClientsInfo(String clientCode);  
+    public JSONArray getClientsInfo(String clientCode) throws Exception;  
     // For Brandstrip
   //  public JSONArray getClientLocationData(String clientCode,String locationFilter, String colorSchema, String dateRange);   
     // for Map loading

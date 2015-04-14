@@ -167,12 +167,13 @@ public class DetailsAdapter implements IDetailsInterface {
     public ChartVo getWidgetNumbers(String queryId, String clientCode, String filter, String loc, String dateRange) {
        
         HibernateUtil hibernate = new HibernateUtil();
-        Session session = hibernate.getSessionFactory(clientCode).openSession();
+        Session session = null;
         ChartVo chartVo = null;
         List dataTable;
         try {
 //            JSONObject jsonObjRes = new JSONObject();
 //            JSONArray returnArray = new JSONArray();
+            session = hibernate.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             dataTable = new ArrayList();                     
             transaction = session.beginTransaction();
@@ -236,7 +237,7 @@ public class DetailsAdapter implements IDetailsInterface {
         } catch (Exception e) {
             // TODO : proper excption handling
             transaction.rollback();
-            System.out.println("error:" + e.getLocalizedMessage());
+           // System.out.println("error:" + e.getLocalizedMessage());
             throw e;
         } finally {
             session.close();
@@ -248,18 +249,17 @@ public class DetailsAdapter implements IDetailsInterface {
     public ChartVo notesData(String queryId, String clientCode, String note, String loc, String dateRange) throws Exception{
         
         HibernateUtil hibernate = new HibernateUtil();
-        Session session = hibernate.getSessionFactory(clientCode).openSession();
+        Session session = null;
         ChartVo chartVo = null;
         List dataTable;
         try{
+            session = hibernate.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             dataTable = new ArrayList();      
-               transaction = session.beginTransaction();
+            transaction = session.beginTransaction();
             SQLQuery rs;
-            
             Config cfg = Config.getInstance(clientCode);
-            
-            if(note.length()!=0) {
+          if(note.length()!=0) {
                 //Insert note into the notes table
                 //Add a '-s' to the queryId to indicate query for submit notes
                 String qinsert = cfg.getProperty(clientCode,"notes-s");
@@ -272,7 +272,7 @@ public class DetailsAdapter implements IDetailsInterface {
                 SQLQuery insertHQL = session.createSQLQuery(qinsert);
                  // DML returns the hibernate query object that needs to be executed
                 int affectedRecords = insertHQL.executeUpdate(); // returns number of affected records
-                System.out.println("Note Inserted :"+affectedRecords); // Logging needs to be done properly
+               // System.out.println("Note Inserted :"+affectedRecords); // Logging needs to be done properly
             }
             //Fetch data
             //Fill header first
@@ -309,9 +309,9 @@ public class DetailsAdapter implements IDetailsInterface {
             chartVo.setDataTable(dataTable);
             transaction.commit();
         } catch (Exception e) {
-            // TODO : proper excption handling
+            
             transaction.rollback();
-            System.out.println("error:" + e.getLocalizedMessage());
+           // System.out.println("error:" + e.getLocalizedMessage());
             throw e;
         } finally {
             session.close();
@@ -326,12 +326,12 @@ public class DetailsAdapter implements IDetailsInterface {
        public List<String> getWidgetPhotoList(String queryId, String clientCode, String filter, String location, String dateRange, int startIndex) throws Exception {  
          //ToDo: move the DB interaction code to the DAO layer
         HibernateUtil hibernate = new HibernateUtil();
-        Session session = hibernate.getSessionFactory(clientCode).openSession();
+        Session session = null;
         
        List<String> photoList = new ArrayList<String>();
         try {
                 
-           
+           session = hibernate.getSessionFactory(clientCode).openSession();
             transaction = session.beginTransaction();
             SQLQuery rs;
             
@@ -353,7 +353,8 @@ public class DetailsAdapter implements IDetailsInterface {
         } catch (Exception ex) {
             //TODO: proper exception handling
             transaction.rollback();
-            System.out.println("error:" + ex.getLocalizedMessage());
+          //  System.out.println("error:" + ex.getLocalizedMessage());
+           
             throw ex;
         }  finally {
             session.close();
@@ -369,9 +370,10 @@ public class DetailsAdapter implements IDetailsInterface {
         List data;
         List dataTable;
         HibernateUtil hibernate = new HibernateUtil();
-        Session session = hibernate.getSessionFactory(clientCode).openSession();
+        Session session = null;
         
         try {
+            session = hibernate.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             header = new ArrayList<String>();
             data = new ArrayList();
@@ -436,7 +438,7 @@ public class DetailsAdapter implements IDetailsInterface {
         catch (Exception e) {
             //TO:DO - proper exception hadling
             transaction.rollback();
-            System.out.println("error:" + e.getLocalizedMessage());
+          //  System.out.println("error:" + e.getLocalizedMessage());
             throw e;
         } 
         finally {

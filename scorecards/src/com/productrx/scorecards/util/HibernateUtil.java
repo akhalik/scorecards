@@ -5,11 +5,12 @@
 package com.productrx.scorecards.util;
 
 import java.util.Hashtable;
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
+
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -22,7 +23,7 @@ public class HibernateUtil {
     //private static final SessionFactory sessionFactory;
     //private static final ServiceRegistry serviceRegistry;
     
-    static Hashtable SessionFactories = new Hashtable();
+   private static Hashtable SessionFactories = new Hashtable();
 
 /*    static {
         try {
@@ -53,16 +54,17 @@ public class HibernateUtil {
                 String configPath = clientCode.concat(".hibernate.cfg.xml");
                 Configuration configuration = new Configuration();
                 configuration.configure(configPath);
-                serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
-                sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+                //serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+               StandardServiceRegistryBuilder builder =new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+               // serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+                sessionFactory = configuration.buildSessionFactory(builder.build());
             
                 SessionFactories.put(clientCode, sessionFactory);
             }
             return sessionFactory;
         } catch (Throwable ex) {
-// Log the exception.
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
+            ex.printStackTrace();
+            throw ex;
         }
     }
     

@@ -30,18 +30,22 @@ public class ClientAdapter implements IClientInterface {
      * @return
      */
     @Override
-    public JSONArray getClientUIData() {
+    public JSONArray getClientUIData() throws Exception {
+        JSONArray resArray = null;
         try {
-            JSONArray resArray = parseScorecardTemplate();
-            return resArray;
+             resArray = parseScorecardTemplate();
+            
         } catch (IOException ex) {
             Logger.getLogger(ClientAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(ClientAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         } catch (SAXException ex) {
             Logger.getLogger(ClientAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         }
-        return null;
+       return resArray;
     }
 
     /**
@@ -50,7 +54,7 @@ public class ClientAdapter implements IClientInterface {
      * @return
      */
     @Override 
-    public JSONArray getClientsInfo(String clientCode) {
+    public JSONArray getClientsInfo(String clientCode) throws Exception{
         JSONArray resArray = parseConfig(clientCode);
         return resArray;
     }
@@ -59,13 +63,14 @@ public class ClientAdapter implements IClientInterface {
      *METHOD USED TO PARSE THE CONFIG.PROPERTIES FILE.
      * @return
      */
-    public JSONArray parseConfig(String clientCode) {
+    public JSONArray parseConfig(String clientCode) throws Exception {
         Properties properties = new Properties();
+         JSONArray resArray = null;
         try {
             String configPath = clientCode.concat(".config.properties");
             properties.load (ClientAdapter.class.getClassLoader().getResourceAsStream(configPath));
             
-            JSONArray resArray = new JSONArray();
+           resArray = new JSONArray();
             JSONObject resObj = new JSONObject();
             resObj.accumulate("logo", properties.getProperty("brandstrip_logo"));
             resObj.accumulate("title", properties.getProperty("brandstrip_title"));
@@ -75,12 +80,13 @@ public class ClientAdapter implements IClientInterface {
             resObj.accumulate("QueryIds", properties.getProperty("QueryIds"));
             resObj.accumulate("ImageFolder", properties.getProperty("ImageFolder"));
 
-            return resArray.put(resObj);
+            resArray.put(resObj);
         } catch (Exception e) {
-            System.out.println("" + e.getCause());
-            e.printStackTrace();
-            return null;
+           // System.out.println("" + e.getCause());
+           // e.printStackTrace();
+            throw e;
         }
+         return resArray;
     }
 
     /**

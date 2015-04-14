@@ -75,7 +75,7 @@ public class LoginController {
 
     @ExceptionHandler(RESTException.class)
     public @ResponseBody
-    Map<String, String> handleException(RESTException ex, Locale locale) {
+    Map<String, String> handleRESTException(RESTException ex, Locale locale) {
 
         Map<String, String> mp = new HashMap<String, String>();
         StringWriter sw = new StringWriter();
@@ -84,6 +84,14 @@ public class LoginController {
         mp.put("errorMessage", messageSource.getMessage("internal.error", null, locale) + "-" + ex.getErrorContext() + "-" + ex.getErrorCode() + ":" + ex.getErrorText());
         mp.put("errorDetail", sw.toString());
         return mp;
+
+    }
+    
+     @ExceptionHandler(Exception.class)
+    public @ResponseBody
+    Map<String, String> handleException(Exception ex, Locale locale) {
+        RESTException e = new RESTException("UNKNOWN", 2001, ex.getMessage(),ex);
+        return handleRESTException(e, locale);
 
     }
 }

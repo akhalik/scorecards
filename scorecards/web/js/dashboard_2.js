@@ -297,7 +297,7 @@ function CreateDashboardWidgets()
         if(DashboardImages=='No') {
             $('#images_li'+i).css("display", "none");
         } else {
-            getWidgetPhotos("tags like '%"+SavedQueryIds[i-1]+"%'", SavedQueryIds[i-1],i);
+            getWidgetPhotos("indicator_tags like '%"+SavedQueryIds[i-1]+"%'", SavedQueryIds[i-1],i);
         }        
         //Fetch table
         getWidgetTable("",SavedQueryIds[i-1],i);     
@@ -463,19 +463,21 @@ function getWidgetPhotos(filter,QueryId,dialogId){
 
 function handlePhotos(QueryId,dialogId,res) {
         
-    if(images.length == 0) {
-        showLargeImg(dialogId,"noimage.jpg");
-        return;
-    }
+    
     if(res.errorMessage){
         
         alert(res.errorMessage);
         return;
     }
     
-    var photos = res.photos;
-    images =  photos[0].images.split(', ');
-    
+    //var photos = res.photos;
+    //images =  photos[0].images.split(', ');
+    images = res.photos;
+    if(images.length == 0) {
+        showLargeImg(dialogId, "noimage.jpg");
+        return;
+    }
+     
     var imghtml="";
     
     for(var i=0;i<images.length;i++) {            
