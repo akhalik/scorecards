@@ -20,11 +20,11 @@ public class LoginAdapter implements IloginInterface {
 
     @Override
     public boolean validateCredentials(String clientId, String userName, String password) {    
-        HibernateUtil hibernate = new HibernateUtil();
+        //HibernateUtil hibernate = new HibernateUtil();
         Session session = null;
         Transaction transaction = null;       
         try {
-            session = hibernate.getSessionFactory(clientId).openSession();
+            session = HibernateUtil.getSessionFactory(clientId).openSession();
             transaction = session.beginTransaction();
             String queryString = "SELECT * FROM users u where user_clientid='" + clientId + "' and user_username = '" + userName + "' and user_password='" + password + "';";
             SQLQuery maxdatequery = session.createSQLQuery(queryString);

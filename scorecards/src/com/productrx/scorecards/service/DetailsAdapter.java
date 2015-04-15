@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class DetailsAdapter implements IDetailsInterface {
 
     //Session session = HibernateUtil.getSessionFactory().openSession();
-    Transaction transaction = null;
+   
 
     static Hashtable PivotQueries = new Hashtable();
     static Hashtable Location = new Hashtable();
@@ -166,14 +166,15 @@ public class DetailsAdapter implements IDetailsInterface {
     @Override
     public ChartVo getWidgetNumbers(String queryId, String clientCode, String filter, String loc, String dateRange) {
        
-        HibernateUtil hibernate = new HibernateUtil();
+       // HibernateUtil hibernate = new HibernateUtil();
         Session session = null;
+        Transaction transaction = null;
         ChartVo chartVo = null;
         List dataTable;
         try {
 //            JSONObject jsonObjRes = new JSONObject();
 //            JSONArray returnArray = new JSONArray();
-            session = hibernate.getSessionFactory(clientCode).openSession();
+            session = HibernateUtil.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             dataTable = new ArrayList();                     
             transaction = session.beginTransaction();
@@ -248,12 +249,13 @@ public class DetailsAdapter implements IDetailsInterface {
     @Override
     public ChartVo notesData(String queryId, String clientCode, String note, String loc, String dateRange) throws Exception{
         
-        HibernateUtil hibernate = new HibernateUtil();
+       // HibernateUtil hibernate = new HibernateUtil();
         Session session = null;
+        Transaction transaction = null;
         ChartVo chartVo = null;
         List dataTable;
         try{
-            session = hibernate.getSessionFactory(clientCode).openSession();
+            session = HibernateUtil.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             dataTable = new ArrayList();      
             transaction = session.beginTransaction();
@@ -324,17 +326,17 @@ public class DetailsAdapter implements IDetailsInterface {
     
        @Override
        public List<String> getWidgetPhotoList(String queryId, String clientCode, String filter, String location, String dateRange, int startIndex) throws Exception {  
-         //ToDo: move the DB interaction code to the DAO layer
-        HibernateUtil hibernate = new HibernateUtil();
+   
+        //HibernateUtil hibernate = new HibernateUtil();
         Session session = null;
+        Transaction transaction = null;
         
        List<String> photoList = new ArrayList<String>();
         try {
                 
-           session = hibernate.getSessionFactory(clientCode).openSession();
+           session = HibernateUtil.getSessionFactory(clientCode).openSession();
             transaction = session.beginTransaction();
             SQLQuery rs;
-            
             //set limit for images
             String queryStringPhotos = "";
             
@@ -354,7 +356,7 @@ public class DetailsAdapter implements IDetailsInterface {
             //TODO: proper exception handling
             transaction.rollback();
           //  System.out.println("error:" + ex.getLocalizedMessage());
-           
+           ex.printStackTrace();
             throw ex;
         }  finally {
             session.close();
@@ -369,11 +371,11 @@ public class DetailsAdapter implements IDetailsInterface {
         List<String> header;
         List data;
         List dataTable;
-        HibernateUtil hibernate = new HibernateUtil();
+       // HibernateUtil hibernate = new HibernateUtil();
         Session session = null;
-        
+         Transaction transaction = null;
         try {
-            session = hibernate.getSessionFactory(clientCode).openSession();
+            session = HibernateUtil.getSessionFactory(clientCode).openSession();
             chartVo = new ChartVo();
             header = new ArrayList<String>();
             data = new ArrayList();

@@ -15,24 +15,24 @@ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/
 
 	<context:component-scan base-package="com.productrx.scorecards.controller" />
           <mvc:annotation-driven />
-        <!-- APPLICATION BEANS NEEDS TO MOVE IN SAPERATE XML-->
+        <!-- APPLICATION BEANS MAY BE MOVED IN SAPERATE XML-->
          <bean id="LoginAdapter" class="com.productrx.scorecards.service.LoginAdapter" />
-         <bean id="LoginModule" class="com.productrx.scorecards.util.LoginBean">
+<!--         <bean id="LoginModule" class="com.productrx.scorecards.util.LoginBean">
              <property name="iloginInterface" ref="LoginAdapter" />
-        </bean>
+        </bean>-->
     
         <bean class="com.productrx.scorecards.vo.LoginVo" scope="session">
              <aop:scoped-proxy/>
         </bean>
         
          <bean id="ClientAdapter" class="com.productrx.scorecards.service.ClientAdapter" />
-        <bean id="clientModule" class="com.productrx.scorecards.util.ClientBean">
+<!--        <bean id="clientModule" class="com.productrx.scorecards.util.ClientBean">
             <property name="iClientInterface" ref="ClientAdapter" />
-        </bean>
+        </bean>-->
      <bean id="DetailsAdapter" class="com.productrx.scorecards.service.DetailsAdapter" />
-         <bean id="detailsModule" class="com.productrx.scorecards.util.DetailsBean">
+<!--         <bean id="detailsModule" class="com.productrx.scorecards.util.DetailsBean">
              <property name="iDetailsInterface" ref="DetailsAdapter" />
-        </bean>
+        </bean>-->
        
 	<bean id="viewResolver"  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   		<property name="prefix">

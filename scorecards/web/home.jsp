@@ -96,7 +96,8 @@
                                     window.location.assign("<c:url value="${webappRoot}/dashboard_2.jsp"/>");
                                 }
                             }, error: function (jqXHR, textStatus, errorThrown) {
-                                alert("Server experiencing some problem please reload once.. ")
+                            var errMsg="<spring:message code="internal.error"/>";
+                                alert(errMsg);
                                 console.log(jqXHR.responseText);
                                 console.log(textStatus.toString());
                             }

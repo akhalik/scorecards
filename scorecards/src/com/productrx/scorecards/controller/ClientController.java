@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.productrx.scorecards.controller;
 
 import com.productrx.scorecards.common.RESTException;
@@ -39,21 +36,17 @@ public class ClientController {
     ClintConfigVo getClientConfig(@RequestBody String data) {
 
         ClintConfigVo configData = new ClintConfigVo();
-             // TODO: 
-        //if user is null need to go back with error
-        // client bean to load xml stream in a bean as singletone and then that to be returned from here
-        // send the proper response back with exception if no configuration done
-        // System.out.println("Data:"+data+" client"+loginVo.getClientId() +"user "+loginVo.getUserName());
+        
         try {
             JSONArray uiConfigArray = clientBean.getClientsInfo(loginVo.getClientId());
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("configData", uiConfigArray);
             configData.setConfigData(uiConfigArray.toString());
         } catch (Exception ex) {
-            //TODO - Logging // CONSTANT
+         
             throw new RESTException("GET GetConfig", 1005, ex.getMessage(), ex);
         }
-        //System.out.println(" conf "+uiConfigArray.toString());
+      
         return configData;
     }
 
